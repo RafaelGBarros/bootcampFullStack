@@ -16,7 +16,7 @@ app.get("/", async (req, res) => {
     res.render("solution.ejs", { data: result });
   } catch (error) {
     console.error("Failed to make request:", error.message);
-    res.render("solution.ejs", {
+    res.render("solution.ejs", {                                            
       error: error.message,
     });
   }
@@ -27,6 +27,7 @@ app.post("/", async (req, res) => {
     console.log(req.body);
     const type = req.body.type;
     const participants = req.body.participants;
+    
     const response = await axios.get(
       `https://bored-api.appbrewery.com/filter?type=${type}&participants=${participants}`
     );
